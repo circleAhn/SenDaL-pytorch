@@ -12,15 +12,14 @@ from Models_eval import check_inference_time
 
 
 ############
-# 이 부분을 수정하세요.
-from Models_eval import UnifiedLSTMModel # 모델에 맞게 불러오기
-PATH = 'lstm_home1_sensor1.pkl' # 모델이름(경로)
+from Models_eval import UnifiedLSTMModel
+PATH = 'lstm_home1_sensor1.pkl' # Trained model
 
 
-ROOTS = '' # 수정 x
-FILENAME = ['home1.csv'] # home1, 2, 3에 맞게 수정
-GROUND_TRUTH = ['pm10']  # 수정 x
-FEATURES = ['sensor1']   # sensor1, 2, 3, 4에 맞게 수정
+ROOTS = ''
+FILENAME = ['home1.csv']
+GROUND_TRUTH = ['pm10']
+FEATURES = ['sensor1'] 
 ############
 
 
