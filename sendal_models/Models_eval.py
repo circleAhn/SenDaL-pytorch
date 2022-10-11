@@ -1,6 +1,6 @@
 ##
 ## Models_eval.py
-## 시계열 처리를 위한 모델
+## To check model inference speed
 ##
 
 import torch
