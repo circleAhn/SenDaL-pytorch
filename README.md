@@ -34,7 +34,9 @@ We provide 3 real-world datasets, which is refined and syncrhonized between high
 * ```home3.csv```
 
 ## Run (SenDaL training)
-```$ python3 model_training.py <model_name>```
+~~```$ python3 model_training.py <model_name>```~~
+
+Command are not yet available
 
 To validate our result, models can be trained using anchored walk forward optimization to evaluate SenDaL using 10-fold cross-validation. The performance of each environment was measured as the average from 10 results for each high-accuracy sensor. The overall performance was calculated as the average performance of each environment.
 
@@ -45,9 +47,13 @@ Available ```model_name``` are: ```LSTM, GRU, PLSTM, Transformer```.
 
 
 ## Run (Check pretrained model accuracy)
-```$ python3 model_predicting.py <model_name> <pretrained_model>```
+~~```$ python3 model_predicting.py <model_name> <pretrained_model>```~~
+
+Command are not yet available
 
 
 ## Run (Check pretrained model inferencing)
-```$ python3 model_train_eval.py <model_name> <pretrained_model>```
+~~```$ python3 model_train_eval.py <model_name> <pretrained_model>```~~
+
+Command are not yet available
 
