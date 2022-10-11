@@ -24,6 +24,8 @@ Embedded hardwares (Jetson Nano, Raspberry Pi 3, Raspberry Pi 4) are different v
 * Raspberry Pi 3 (CPU): 1.4GHz 4-core ARM Cortex-A53
 * Raspberry Pi 4 (CPU): 1.5GHz 4-core ARM Cortex-A72
 
+Jetson Nano also have GPU, but it was not considered in our experiment.
+
 
 
 
