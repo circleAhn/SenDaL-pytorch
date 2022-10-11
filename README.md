@@ -30,7 +30,7 @@ Jetson Nano also have GPU, but it was not considered in our experiment.
 
 
 ## Datasets
-We provide 3 real-world datasets, which is refined and syncrhonized between high- and low- cost sensors.
+We provide 3 real-world fine-dust datasets, which is refined and syncrhonized between high- and low- cost sensors.
 * ```home1.csv```
 * ```home2.csv```
 * ```home3.csv```
