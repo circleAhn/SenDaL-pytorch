@@ -1,6 +1,5 @@
 ##
 ## Utils.py
-## 추가적인 기능을 하는 함수들의 모음
 ##
 
 import torch
