@@ -35,27 +35,33 @@ We provide 3 real-world fine-dust datasets, which is refined and syncrhonized be
 * ```home2.csv```
 * ```home3.csv```
 
-## Run (SenDaL training)
+
+## Run
+We provide 3 running options: SenDaL training, computing accuracy, and computing inference time.
+
+To validate our result, models can be trained using **anchored walk forward optimization** to evaluate SenDaL using 10-fold cross-validation. The performance of each environment was measured as the average from 10 results for each high-accuracy sensor. The overall performance was calculated as the average performance of each environment.
+
+For computing accuracy and inference time, pretrained SenDaL is required. Since the training process takes a long time, we provide all the weight of the pre-trained SenDaL (with LSTM component) trained with anchored walk forward optimization as an example for verification accuracy. All the weight files are formatted as ```lstm_home<x>_sensor<y>_<z>.pkl``` where x denotes environment number, y denotes sensor number, and z denotes the z-th cross-validation.
+
+Other components (e.g., GRU, PLSTM, Transformer) also should be trained, but we do not provide a pre-trained model as above.
+
+
+### Run (SenDaL training)
 ~~```$ python3 model_training.py <model_name>```~~
 
-Command is not yet available
-
-To validate our result, models can be trained using anchored walk forward optimization to evaluate SenDaL using 10-fold cross-validation. The performance of each environment was measured as the average from 10 results for each high-accuracy sensor. The overall performance was calculated as the average performance of each environment.
-
-Since the training process takes a long time, we provide all the weights of the pre-trained LSTM model (both single and unified) trained with anchored walk forward optimization as an example for verification accuracy. In this way, other models can also be trained and verified.
-
+Command is not yet available.
 
 Available ```model_name``` are: ```LSTM, GRU, PLSTM, Transformer```.
 
 
-## Run (Check pretrained model accuracy)
+### Run (Checking pretrained model accuracy)
 ~~```$ python3 model_predicting.py <model_name> <pretrained_model>```~~
 
-Command is not yet available
+Command is not yet available.
 
 
-## Run (Check pretrained model inferencing)
+### Run (Checking pretrained model inferencing)
 ~~```$ python3 model_train_eval.py <model_name> <pretrained_model>```~~
 
-Command is not yet available
+Command is not yet available.
 
