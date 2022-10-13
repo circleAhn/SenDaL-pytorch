@@ -78,7 +78,7 @@ $ python model_eval_accuracy.py <model_name> <n_cv> <type>
 * Default of ```<n_cv>``` is set to ```10```. 
 * ```<type>```: ```1``` is for checking single model, and ```2```is for checking unified model. Different models are needed for each type. To fit our experimental results, 120 (3x4x10) pre-trained weights are required for each type.
 
-**Note**: ```<n_cv>``` must equal to pretrained models setting.
+**Note**: **Pretrained models must be required.** ```<n_cv>``` must equal to pretrained models setting.
 
 The following two commands are available without training:
 ```
