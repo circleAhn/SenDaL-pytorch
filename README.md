@@ -41,7 +41,7 @@ We provide 3 running options: SenDaL training, computing accuracy, and computing
 
 To validate our result, models can be trained using **anchored walk forward optimization** to evaluate SenDaL using 10-fold cross-validation. The performance of each environment was measured as the average from 10 results for each high-accuracy sensor. The overall performance was calculated as the average performance of each environment.
 
-For computing accuracy and inference time, pretrained SenDaL is required. Since the training process takes a long time, we provide all the weight of the pre-trained SenDaL (with LSTM component) trained with anchored walk forward optimization as an example for verification accuracy. All the weight files are formatted as ```lstm_home<x>_sensor<y>_<z>.pkl``` where x denotes environment number, y denotes sensor number, and z denotes the z-th cross-validation.
+For computing accuracy and inference time, pretrained SenDaL is required. Since the training process takes a long time, we provide all the weight of the pre-trained SenDaL (with LSTM component) trained with anchored walk forward optimization as an example for verification accuracy. All the weight files are formatted as ```lstm_home<x>_sensor<y>_<z>of<n_cv>_<type>.pkl``` where ```x``` denotes environment number, ```y``` denotes sensor number, ```z``` denotes the z-th fold of cross-validation, ```n_cv``` denotes the number of folds, and ```type``` denotes single or unified model.
 
 Other components (e.g., GRU, PLSTM, Transformer) also should be trained, but we do not provide a pre-trained model as above.
 
@@ -61,14 +61,47 @@ For example, we want to train an lstm-SenDaL model using dataset home1 with sens
 $ python model_training.py home1.csv sensor1 lstm 5
 ```
 
+Then model_training.py will create ```2*n_cv``` files which is of the form:
+
+```<model_name>_home<x>_sensor<y>_<z>of<n_cv>_single.pkl``` and ```<model_name>_home<x>_sensor<y>_<z>of<n_cv>_unified.pkl```
+
+
 **Note**: To verify the results of the paper, the average is calculated by learning a 10-fold cross-validation for all ordered parirs of dataset and sensor. Since the training process takes a long time and often sensitive, we provide all the weight of the pre-trained SenDaL (with LSTM component) trained with anchored walk forward optimization as an example for verification accuracy. We can easily show the experimental results using the following commands.
 
 
 
 ### Run (Checking pretrained model accuracy)
-~~```$ python3 model_predicting.py <model_name> <pretrained_model>```~~
+```
+$ python model_eval_accuracy.py <model_name> <n_cv> <type>
+```
+* Invalid ```<model_name>``` format are: ```LSTM, GRU, PhasedLSTM(or PLSTM), Transformer(or Trans)```. 
+* Default of ```<n_cv>``` is set to ```10```. 
+* ```<type>```: ```1``` is for checking single model, and ```2```is for checking unified model. Different models are needed for each type. To fit our experimental results, 120 (3x4x10) pre-trained weights are required for each type.
 
-Command is not yet available.
+**Note**: ```<n_cv>``` must equal to pretrained models setting.
+
+The following two commands are available without training:
+```
+$ python model_eval_accuracy.py lstm 10 1
+
+output:
+  ...
+  Home1:  2.233357253319351
+  Home2:  2.3198059027357276
+  Home3:  3.0535407238081946
+  Overall:  2.5621276964843593
+```
+and
+```
+$ python model_eval_accuracy.py lstm 10 2
+
+output:
+  ...
+  Home1:  2.1954087284152037
+  Home2:  2.297551276696442
+  Home3:  3.041442506113538
+  Overall:  2.5396150542844946
+```
 
 
 ### Run (Checking pretrained model inferencing)
