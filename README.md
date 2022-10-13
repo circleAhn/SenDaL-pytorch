@@ -7,7 +7,7 @@ The development of the Internet of Things (IoT) has gradually revolutionized our
 
 
 
-## Requirements (Machine)
+## Requirements (Machine on Anaconda3)
 * ```Python 3.8.5.```
 * ```Pytorch 1.8.0.```
 * ```Pandas 1.2.4.```
@@ -47,11 +47,22 @@ Other components (e.g., GRU, PLSTM, Transformer) also should be trained, but we 
 
 
 ### Run (SenDaL training)
-~~```$ python3 model_training.py <model_name>```~~
+```
+$ python model_training.py <dataset_name> <sensor_column> <model_name> <n_cv>
+```
 
-Command is not yet available.
+* Initial ```<dataset_name>``` format are: ```home1.csv, home2.csv, home3.csv```. 
+* Initial ```<sensor_column>``` format are: ```sensor1, sensor2, sensor3, sensor4```. 
+* Invalid ```<model_name>``` format are: ```LSTM, GRU, PhasedLSTM(or PLSTM), Transformer(or Trans)```. 
+* Default of ```<n_cv>``` is set to ```10```. 
 
-Available ```model_name``` are: ```LSTM, GRU, PLSTM, Transformer```.
+For example, we want to train an lstm-SenDaL model using dataset home1 with sensor1 based on 5-fold cross-validation, the training command is:
+```
+$ python model_training.py home1.csv sensor1 lstm 5
+```
+
+**Note**: To verify the results of the paper, the average is calculated by learning a 10-fold cross-validation for all ordered parirs of dataset and sensor. Since the training process takes a long time and often sensitive, we provide all the weight of the pre-trained SenDaL (with LSTM component) trained with anchored walk forward optimization as an example for verification accuracy. We can easily show the experimental results using the following commands.
+
 
 
 ### Run (Checking pretrained model accuracy)
