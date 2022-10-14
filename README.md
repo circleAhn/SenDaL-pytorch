@@ -56,7 +56,7 @@ $ python model_training.py <dataset_name> <sensor_column> <model_name> <n_cv>
 
 * Initial ```<dataset_name>``` format are: ```home1.csv, home2.csv, home3.csv```. 
 * Initial ```<sensor_column>``` format are: ```sensor1, sensor2, sensor3, sensor4```. 
-* Invalid ```<model_name>``` format are: ```LSTM, GRU, PhasedLSTM(or PLSTM), Transformer(or Trans)```. 
+* Valid ```<model_name>``` format are: ```LSTM, GRU, PhasedLSTM(or PLSTM), Transformer(or Trans)```. 
 * Default of ```<n_cv>``` is set to ```10```. 
 
 For example, we want to train an lstm-SenDaL model using dataset home1 with sensor1 based on 5-fold cross-validation, the training command is:
@@ -77,7 +77,7 @@ Then model_training.py will create ```2*n_cv``` files which is of the form:
 ```
 $ python model_eval_accuracy.py <model_name> <n_cv> <type>
 ```
-* Invalid ```<model_name>``` format are: ```LSTM, GRU, PhasedLSTM(or PLSTM), Transformer(or Trans)```. 
+* Valid ```<model_name>``` format are: ```LSTM, GRU, PhasedLSTM(or PLSTM), Transformer(or Trans)```. 
 * Default of ```<n_cv>``` is set to ```10```. ```<n_cv>``` must equal to pretrained models setting.
 * ```<type>```: ```1``` is for checking single model, and ```2```is for checking unified model. Different models are needed for each type. To fit our experimental results, 120 (3x4x10) pre-trained weights are required for each type.
 
@@ -111,7 +111,7 @@ output:
 ```
 $ python model_eval_time.py <model_name> <n_cv> <type>
 ```
-* Invalid ```<model_name>``` format are: ```LSTM, GRU, PhasedLSTM(or PLSTM), Transformer(or Trans)```. 
+* Valid ```<model_name>``` format are: ```LSTM, GRU, PhasedLSTM(or PLSTM), Transformer(or Trans)```. 
 * Default of ```<n_cv>``` is set to ```10```.  ```<n_cv>``` must equal to pretrained models setting.
 * ```<type>```: ```1``` is for checking single model, and ```2```is for checking unified model. Different models are needed for each type. To fit our experimental results, 120 (3x4x10) pre-trained weights are required for each type.
 
