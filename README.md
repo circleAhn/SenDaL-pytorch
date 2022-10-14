@@ -132,3 +132,12 @@ with torch.no_grad():
     ...
 ...
 ```
+
+
+## Experimental results
+
+### Results of correction accuracy (RMSE)
+
+### Results of inference speed on machine (ms, us)
+
+### Results of inference speed on embedded hardware (us)
