@@ -75,10 +75,10 @@ Then model_training.py will create ```2*n_cv``` files which is of the form:
 $ python model_eval_accuracy.py <model_name> <n_cv> <type>
 ```
 * Invalid ```<model_name>``` format are: ```LSTM, GRU, PhasedLSTM(or PLSTM), Transformer(or Trans)```. 
-* Default of ```<n_cv>``` is set to ```10```. 
+* Default of ```<n_cv>``` is set to ```10```. ```<n_cv>``` must equal to pretrained models setting.
 * ```<type>```: ```1``` is for checking single model, and ```2```is for checking unified model. Different models are needed for each type. To fit our experimental results, 120 (3x4x10) pre-trained weights are required for each type.
 
-**Note**: **Pretrained models must be required.** ```<n_cv>``` must equal to pretrained models setting.
+**Note**: **Pretrained models must be required.** 
 
 The following two commands are available without training:
 ```
@@ -105,7 +105,30 @@ output:
 
 
 ### Run (Checking pretrained model inferencing)
-~~```$ python3 model_train_eval.py <model_name> <pretrained_model>```~~
+```
+$ python model_eval_time.py <model_name> <n_cv> <type>
+```
+* Invalid ```<model_name>``` format are: ```LSTM, GRU, PhasedLSTM(or PLSTM), Transformer(or Trans)```. 
+* Default of ```<n_cv>``` is set to ```10```.  ```<n_cv>``` must equal to pretrained models setting.
+* ```<type>```: ```1``` is for checking single model, and ```2```is for checking unified model. Different models are needed for each type. To fit our experimental results, 120 (3x4x10) pre-trained weights are required for each type.
 
-Command is not yet available.
+**Note1**: **Pretrained models must be required.**
 
+**Note2**: This code is focused on CPU inference time. If we check the inference time on GPU invironment, different time measurement method is required. Change to :
+```python
+# in Models.py
+
+...
+starter, ender = torch.cuda.Event(enable_timing=True), torch.cuda.Event(enable_timing=True)
+...
+with torch.no_grad():
+  for rep in range(repetitions):
+    ...
+    starter.record()
+    ... # predict
+    ender.record()
+    torch.cuda.synchronize()
+    curr_time = starter.elapsed_time(ender)/(len(testX))
+    ...
+...
+```
