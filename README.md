@@ -7,7 +7,8 @@ The development of the Internet of Things (IoT) has gradually revolutionized our
 
 
 
-## Requirements (Machine on Anaconda3)
+## Requirements (on machine)
+Machine are experiemented on virutal machine on Anaconda 3.
 * ```Python 3.8.5.```
 * ```Pytorch 1.8.0.```
 * ```Pandas 1.2.4.```
