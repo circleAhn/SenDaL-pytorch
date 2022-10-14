@@ -138,6 +138,12 @@ with torch.no_grad():
 
 ### Results of correction accuracy (RMSE)
 
+<center><img src = "/res1.png" width = "50%" height = "50%"></center>
+
 ### Results of inference speed on machine (ms, us)
 
+<center><img src = "/res2.png" width = "50%" height = "50%"></center>
+
 ### Results of inference speed on embedded hardware (us)
+
+<center><img src = "/res3.png" width = "50%" height = "50%"></center>
