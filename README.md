@@ -150,3 +150,9 @@ with torch.no_grad():
 ### Results of inference speed on embedded hardware (us)
 
 <center><img src = "/res3.png" width = "50%" height = "50%"></center>
+
+<br />
+
+## Contact
+
+Seokho Ahn (sokho0514@gmail.com)
