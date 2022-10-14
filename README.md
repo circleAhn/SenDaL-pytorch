@@ -107,7 +107,7 @@ output:
 ```
 
 
-### Run (Checking pretrained model inferencing)
+### Run (Checking pretrained model inference speed)
 ```
 $ python model_eval_time.py <model_name> <n_cv> <type>
 ```
