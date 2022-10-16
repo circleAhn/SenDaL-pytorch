@@ -1,6 +1,5 @@
 ##
 ## WindowDataset.py
-## 시계열 처리를 위한 데이터 분할
 ##
 ## ┌────────────────────────────────────────────────────────────┐
 ## │                           Data(X)                          │
@@ -55,18 +54,10 @@ class WindowDataset(Dataset):
             base_idx = stride * i + input_window
             X[i, :] = Xdatas[base_idx-input_window:base_idx]
             y[i, :] = ydatas[base_idx-output_window:base_idx]
-        
-        # 중복된 차원 제거
+
         self.X = X.squeeze(-2) if X.shape[-2] == 1 else X
         self.y = y.squeeze(-2) if y.shape[-2] == 1 else y
-        
-        
-        # TODO:
-        # 여러개의 feature을 받을 시에 shape의 형태가
-        # (ndata, window, feature)인지, (ndata, feature, window)인지 확인하고
-        # 그에 맞게 코드를 수정
-        #
-        #
+       
             
         
     def __getitem__(self, i):
