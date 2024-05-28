@@ -159,6 +159,9 @@ with torch.no_grad():
 
 
 ## Citation
+
+If you would like to cite this paper, please make a copy of the following text. Thank you🤣
+
 ```bibtex
 @ARTICLE{Ahn2024SenDaL,
   author={Ahn, Seokho and Kim, Hyungjin and Lee, Euijong and Seo, Young-Duk},
