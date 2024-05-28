@@ -1,6 +1,8 @@
 # SenDaL: An Effective and Efficient Calibration Framework of Low-Cost Sensors for Daily Life
 
-<center><img src = "/img/intro.png" width = "70%" height = "70%"></center>
+<center><img src = "/img/intro.png" width = "50%" height = "50%"></center>
+
+Accepted in IEEE Internet of Things Journal: https://ieeexplore.ieee.org/document/10453368
 
 ## Abstract
 The collection of accurate and noise-free data is a crucial part of Internet of Things (IoT)-controlled environments. However, the data collected from various sensors in daily life often suffer from inaccuracies. Additionally, IoT-controlled devices with low-cost sensors lack sufficient hardware resources to employ conventional deep learning models. To overcome this limitation, we propose sensors for daily life (SenDaL), the first framework that utilizes neural networks for calibrating low-cost sensors. SenDaL introduces novel training and inference processes that enable it to achieve accuracy comparable to deep learning models while simultaneously preserving latency and energy consumption similar to linear models. SenDaL is first trained in a bottom-up manner, making decisions based on calibration results from both linear and deep learning models. Once both models are trained, SenDaL makes independent decisions through a top-down inference process, ensuring accuracy and inference speed. Furthermore, SenDaL can select the optimal deep learning model according to the resources of the IoT devices because it is compatible with various deep learning models, such as long short-term memory-based and Transformer-based models. We have verified that SenDaL outperforms existing deep learning models in terms of accuracy, latency, and energy efficiency through experiments conducted in different IoT environments and real-life scenarios.
@@ -20,12 +22,15 @@ Embedded hardwares (Jetson Nano, Raspberry Pi 3, Raspberry Pi 4) are different v
 * CPU: AMD Ryzen 5 5600X 6-Core
 * GPU: NVIDIA GeForce RTX 2060
 
-#### Embedded hardware environment (Only predicted using pretrained SenDaL)
+#### Edge device environment (Only predicted using pretrained SenDaL)
 * Jetson Nano (CPU): 1.43GHz 4-core ARM Cortex-A57
 * Raspberry Pi 3 (CPU): 1.4GHz 4-core ARM Cortex-A53
 * Raspberry Pi 4 (CPU): 1.5GHz 4-core ARM Cortex-A72
 
 Jetson Nano also have GPU, but it was not considered in our experiment.
+
+#### Micro-controller environment (Only predicted using pretrained SenDaL)
+* Arduino Nano 33 BLE Sense (CPU): 64MHz ARM Cortex M4 with 1MB Flash memory
 
 
 <br />
@@ -47,6 +52,8 @@ To validate our result, models can be trained using **anchored walk forward opti
 For computing accuracy and inference time, pretrained SenDaL is required. Since the training process takes a long time, we provide all the weight of the pre-trained SenDaL (with LSTM component) trained with anchored walk forward optimization as an example for verification accuracy. All the weight files are formatted as ```lstm_home<x>_sensor<y>_<z>of<n_cv>_<type>.pkl``` where ```x``` denotes environment number, ```y``` denotes sensor number, ```z``` denotes the z-th fold of cross-validation, ```n_cv``` denotes the number of folds, and ```type``` denotes single or unified model.
 
 Other components (e.g., GRU, PLSTM, Transformer) also should be trained, but we do not provide a pre-trained model as above.
+
+For Reformer and Performer, see original implementation https://pypi.org/project/reformer-pytorch/ and https://pypi.org/project/performer-pytorch/ .
 
 
 ### Run (SenDaL training)
@@ -135,23 +142,33 @@ with torch.no_grad():
     ...
 ...
 ```
-<br />
 
-## Experimental results
+**Note3**: This code calculates the inference speed under the PyTorch environment. Plase convert pretrained model to ONNX format in order to evaluate inference speed in an ONNX format.
 
-### Results of correction accuracy (RMSE)
-
-<center><img src = "/img/res1.png" width = "70%" height = "70%"></center>
-
-### Results of inference speed on machine (ms, us)
-
-<center><img src = "/img/res2.png" width = "70%" height = "70%"></center>
-
-### Results of inference speed on embedded hardware (us)
-
-<center><img src = "/img/res3.png" width = "70%" height = "70%"></center>
+**Note4**: For micro-controller environment, please convert pretrained model to TF-lite.
 
 <br />
+
+## Main results
+
+<center><img src = "/img/main_res.png" width = "90%" height = "90%"></center>
+
+<br />
+
+
+## Citation
+```bibtex
+@ARTICLE{Ahn2024SenDaL,
+  author={Ahn, Seokho and Kim, Hyungjin and Lee, Euijong and Seo, Young-Duk},
+  journal={IEEE Internet of Things Journal}, 
+  title={SenDaL: An Effective and Efficient Calibration Framework of Low-Cost Sensors for Daily Life}, 
+  year={2024},
+  volume={11},
+  number={11},
+  pages={20619-20630},
+  keywords={Sensors;Deep learning;Calibration;Training;Internet of Things;Hardware;Biological system modeling;Bottom-up training;deep learning;Internet of Things (IoT);sensor calibration;soft sensor;top-down inference},
+  doi={10.1109/JIOT.2024.3371150}}
+```
 
 ## Contact
 
