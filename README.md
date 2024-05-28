@@ -4,6 +4,8 @@
 
 Accepted in IEEE Internet of Things Journal: https://ieeexplore.ieee.org/document/10453368
 
+<br />
+
 ## Abstract
 The collection of accurate and noise-free data is a crucial part of Internet of Things (IoT)-controlled environments. However, the data collected from various sensors in daily life often suffer from inaccuracies. Additionally, IoT-controlled devices with low-cost sensors lack sufficient hardware resources to employ conventional deep learning models. To overcome this limitation, we propose sensors for daily life (SenDaL), the first framework that utilizes neural networks for calibrating low-cost sensors. SenDaL introduces novel training and inference processes that enable it to achieve accuracy comparable to deep learning models while simultaneously preserving latency and energy consumption similar to linear models. SenDaL is first trained in a bottom-up manner, making decisions based on calibration results from both linear and deep learning models. Once both models are trained, SenDaL makes independent decisions through a top-down inference process, ensuring accuracy and inference speed. Furthermore, SenDaL can select the optimal deep learning model according to the resources of the IoT devices because it is compatible with various deep learning models, such as long short-term memory-based and Transformer-based models. We have verified that SenDaL outperforms existing deep learning models in terms of accuracy, latency, and energy efficiency through experiments conducted in different IoT environments and real-life scenarios.
 
@@ -169,6 +171,8 @@ with torch.no_grad():
   keywords={Sensors;Deep learning;Calibration;Training;Internet of Things;Hardware;Biological system modeling;Bottom-up training;deep learning;Internet of Things (IoT);sensor calibration;soft sensor;top-down inference},
   doi={10.1109/JIOT.2024.3371150}}
 ```
+
+<br />
 
 ## Contact
 
