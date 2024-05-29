@@ -34,6 +34,8 @@ Jetson Nano also have GPU, but it was not considered in our experiment.
 #### Micro-controller environment (Only predicted using pretrained SenDaL)
 * Arduino Nano 33 BLE Sense (CPU): 64MHz ARM Cortex M4 with 1MB Flash memory
 
+For micro-controller environment, please convert pretrained model to TF-lite.
+
 
 <br />
 
